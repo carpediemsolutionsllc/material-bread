@@ -58,6 +58,8 @@ class AppbarBottom extends Component {
     const { fab, fabPosition, fabCutout } = this.props;
     if (!fab) return null;
 
+    const { onPress } = fab.props;
+
     const fabRightStyle = {
       right: fabCutout ? 18 : 16,
     };
@@ -74,7 +76,7 @@ class AppbarBottom extends Component {
         width: '100%',
         transform: [{ translateY: -29 }],
       },
-      onPress: this._setMaskVisible,
+      onPress: onPress ? onPress : this._setMaskVisible,
       ref: this.fab,
     });
   }
